@@ -1,0 +1,155 @@
+import {StyleSheet, Dimensions, PixelRatio} from 'react-native';
+import {Colors} from '../../Utils/Colors';
+const {width, height} = Dimensions.get('window');
+
+export const styles = StyleSheet.create({
+  userHeaderImage: {
+    width: width,
+    height: height * 0.32,
+  },
+  followeredByMainLabel: {
+    fontSize: 20,
+    fontWeight: '400',
+  },
+  followeredBySocialMediaName: {
+    fontSize: 16,
+    fontWeight: '700',
+    marginLeft: PixelRatio.getPixelSizeForLayoutSize(2),
+  },
+  folleredBySocialMediaMainView: {
+    flexDirection: 'row',
+    padding: PixelRatio.getPixelSizeForLayoutSize(4),
+    paddingLeft: PixelRatio.getPixelSizeForLayoutSize(5),
+    paddingRight: PixelRatio.getPixelSizeForLayoutSize(5),
+    borderRadius: 100,
+    marginLeft: PixelRatio.getPixelSizeForLayoutSize(2),
+    marginRight: PixelRatio.getPixelSizeForLayoutSize(2),
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(3),
+  },
+  followeredByMemberSince: {
+    fontSize: 20,
+    fontWeight: '400',
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(5),
+  },
+  collactionsCollectedText: {
+    fontSize: 24,
+    fontWeight: '700',
+    letterSpacing: 1.2,
+    marginLeft: PixelRatio.getPixelSizeForLayoutSize(10),
+  },
+  collectionsCreatedText: {
+    fontSize: 24,
+    fontWeight: '700',
+    letterSpacing: 1.2,
+  },
+  followeredByDescription: {
+    fontSize: 14,
+    fontWeight: '500',
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(8),
+  },
+  followeredByImage: {
+    width: width * 0.13,
+    height: height * 0.08,
+    borderRadius: 100,
+    borderColor: Colors.WHITE,
+    borderWidth: 1.4,
+    flexDirection: 'row',
+  },
+  followeredByImages: {
+    width: width * 0.13,
+    height: height * 0.08,
+    borderRadius: 100,
+    borderColor: Colors.WHITE,
+    borderWidth: 1.4,
+    flexDirection: 'row',
+    marginHorizontal: -PixelRatio.getPixelSizeForLayoutSize(3),
+  },
+  followeredByMainView: {
+    margin: PixelRatio.getPixelSizeForLayoutSize(4.7),
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(6),
+  },
+  totalViewFollowing: {
+    fontSize: 32,
+    letterSpacing: 1.2,
+    fontWeight: '700',
+  },
+  totalViewFollowingLabel: {
+    fontSize: 16,
+    fontWeight: '700',
+    letterSpacing: 1.2,
+  },
+  userProfileDownloadBtn: {
+    backgroundColor: Colors.BACKGROUND,
+    width: width * 0.12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: height * 0.07,
+    borderRadius: 100,
+  },
+  discoverCreatorAllCreatorBtn: {
+    alignItems: 'center',
+    borderRadius: 15,
+    height: 60,
+    justifyContent: 'center',
+    width: width * 0.35,
+    marginRight: PixelRatio.getPixelSizeForLayoutSize(8),
+    alignSelf: 'flex-end',
+  },
+  EditedPencilBtn: {
+    alignItems: 'center',
+    borderRadius: 15,
+    height: 50,
+    justifyContent: 'center',
+    width: width * 0.25,
+    marginRight: PixelRatio.getPixelSizeForLayoutSize(8),
+    alignSelf: 'flex-end',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+
+    elevation: 2,
+  },
+  allCreatorText: {
+    fontSize: 16,
+    fontWeight: '400',
+  },
+  totalViewMainView: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: width,
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(4),
+    marginLeft: PixelRatio.getPixelSizeForLayoutSize(4),
+  },
+  userHeaderUserName: {
+    fontSize: 18,
+    fontWeight: '700',
+    letterSpacing: 2,
+  },
+  userHeaderEthAddress: {
+    width: width / 2.3,
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(3),
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  userHeaderProfileImage: {
+    width: width * 0.35,
+    height: height * 0.23,
+    borderRadius: 100,
+    alignSelf: 'center',
+    marginTop: PixelRatio.getPixelSizeForLayoutSize(15),
+  },
+  userProfileOptionsBtn: {
+    backgroundColor: Colors.BACKGROUND,
+    width: width * 0.12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: height * 0.07,
+    borderRadius: 100,
+    marginRight: PixelRatio.getPixelSizeForLayoutSize(3),
+  },
+});

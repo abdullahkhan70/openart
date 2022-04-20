@@ -1,0 +1,32 @@
+export const DummyActivities = [
+  {
+    id: 1,
+    userName: '@abdullah_khan',
+    image: null,
+    auctionType: 'auction',
+    name: 'Abdullah Khan',
+    rate: 1.5,
+    dollarRate: 2560,
+    sold: true,
+  },
+  {
+    id: 2,
+    userName: '@abdullah_khan',
+    image: require('../../../Assets/dummy/profile_image.jpg'),
+    auctionType: 'bid',
+    name: 'Abdullah Khan',
+    rate: 1.5,
+    dollarRate: 2560,
+    sold: false,
+  },
+  {
+    id: 3,
+    userName: '@abdullah_khan',
+    image: require('../../../Assets/dummy/profile_image.jpg'),
+    auctionType: 'listing',
+    name: 'Abdullah Khan',
+    rate: 1.5,
+    dollarRate: 2560,
+    sold: false,
+  },
+];
