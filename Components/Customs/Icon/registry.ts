@@ -55,6 +55,22 @@ export const IconRegistry = {
   youtube_profile_dark: require('../../../Assets/Images/youtube_profile_dark.svg'),
   facebook_profile_dark: require('../../../Assets/Images/facebook_profile_dark.svg'),
   tiktok_profile_dark: require('../../../Assets/Images/tiktok_profile_dark.svg'),
+  share_black: require('../../../Assets/Images/share_black.svg'),
+  share_white: require('../../../Assets/Images/share_white.svg'),
+  call_black: require('../../../Assets/Images/call_black.svg'),
+  call_white: require('../../../Assets/Images/call_white.svg'),
+  link_black: require('../../../Assets/Images/link_black.svg'),
+  link_white: require('../../../Assets/Images/link_white.svg'),
+  email_black: require('../../../Assets/Images/email_black.svg'),
+  email_white: require('../../../Assets/Images/email_white.svg'),
+  image_black: require('../../../Assets/Images/image_black.svg'),
+  image_white: require('../../../Assets/Images/image_white.svg'),
+  cross_btn: require('../../../Assets/Images/cross_btn.svg'),
+  create_new_collection_dark: require('../../../Assets/Images/create_new_collection_dark.svg'),
+  create_new_collection_white: require('../../../Assets/Images/create_new_collection_white.svg'),
+  view_dark: require('../../../Assets/Images/view_dark.svg'),
+  view_white: require('../../../Assets/Images/view_white.svg'),
+  download_white: require('../../../Assets/Images/download_white.svg'),
 };
 
 export type IconName = keyof typeof IconRegistry;

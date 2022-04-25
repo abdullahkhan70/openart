@@ -284,9 +284,8 @@ export const styles = StyleSheet.create({
     marginRight: PixelRatio.getPixelSizeForLayoutSize(7),
     alignSelf: 'center',
     justifyContent: 'center',
-    // height: height,
     marginTop: PixelRatio.getPixelSizeForLayoutSize(5),
-    // paddingBottom: PixelRatio.getPixelSizeForLayoutSize(5),
+    paddingBottom: PixelRatio.getPixelSizeForLayoutSize(5),
   },
   searchIcon: {
     padding: 10,

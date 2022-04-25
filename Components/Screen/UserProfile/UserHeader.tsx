@@ -21,12 +21,20 @@ import {
   selectCopyUserEthAddress,
   setCopyUserEthAddress,
 } from '../../Utils/Redux/modalSlice';
-const UserHeader: React.FC = () => {
+import {useWalletConnect} from '@walletconnect/react-native-dapp';
+
+type userHeaderProps = {
+  showButtons: boolean;
+};
+const UserHeader: React.FC<userHeaderProps> = ({
+  showButtons = true,
+}: userHeaderProps) => {
   const reduxDispatch = useDispatch();
   const selCopyUserEthAddress = useSelector(selectCopyUserEthAddress);
   const scheme = useColorScheme();
+  const connector = useWalletConnect();
   const copyToClipboard = () => {
-    Clipboard.setString(Lables.ETHADDRESS);
+    Clipboard.setString(connector.accounts[0]);
     reduxDispatch(setCopyUserEthAddress(Boolean(!selCopyUserEthAddress)));
   };
   const onDismissSnackBar = () => {
@@ -37,21 +45,30 @@ const UserHeader: React.FC = () => {
       <ImageBackground
         style={styles.userHeaderImage}
         source={DummyCurrentBiddingNFT[0].artImage}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignSelf: 'flex-end',
-            padding: PixelRatio.getPixelSizeForLayoutSize(4),
-          }}>
-          <TouchableOpacity style={styles.userProfileOptionsBtn}>
-            <Icon name="option_btn" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.userProfileDownloadBtn}>
-            <Icon name="download" />
-          </TouchableOpacity>
-        </View>
+        {showButtons && (
+          <View
+            style={{
+              flexDirection: 'row',
+              alignSelf: 'flex-end',
+              padding: PixelRatio.getPixelSizeForLayoutSize(4),
+            }}>
+            <TouchableOpacity style={styles.userProfileOptionsBtn}>
+              <Icon name="option_btn" />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.userProfileDownloadBtn}>
+              <Icon name="download" />
+            </TouchableOpacity>
+          </View>
+        )}
         <Image
-          style={styles.userHeaderProfileImage}
+          style={[
+            styles.userHeaderProfileImage,
+            {
+              marginTop: showButtons
+                ? PixelRatio.getPixelSizeForLayoutSize(30)
+                : PixelRatio.getPixelSizeForLayoutSize(30),
+            },
+          ]}
           source={DummyCurrentBiddingNFT[0]?.profile_image[0]}
         />
       </ImageBackground>
@@ -79,7 +96,7 @@ const UserHeader: React.FC = () => {
               },
             ]}
             numberOfLines={1}>
-            {Lables.ETHADDRESS}
+            {connector.accounts[0]}
           </Text>
           <TouchableOpacity>
             <Icon

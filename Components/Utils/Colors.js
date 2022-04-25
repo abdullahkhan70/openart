@@ -1,4 +1,5 @@
 export const Colors = {
+  MULTIFILECHECKEDBOXWHITE: '#005CFF',
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   DISCOVERMAINTEXT: '#555555',
@@ -17,4 +18,6 @@ export const Colors = {
   USERLIGHTBACKGROUND: '#f1f1f1',
   BLACK: 'black',
   SWITCHON: '#0000EB',
+  TOOLBARDARKCOLOR: '#2A2A2E',
+  BORDERCREATORPORFILE: '#4c4c4c',
 };

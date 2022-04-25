@@ -130,6 +130,7 @@ const LiveAuctions: React.FC<Props> = ({hideView}) => {
             flexDirection: 'row',
             paddingLeft: PixelRatio.getPixelSizeForLayoutSize(6),
             paddingRight: PixelRatio.getPixelSizeForLayoutSize(6),
+            paddingBottom: PixelRatio.getPixelSizeForLayoutSize(5),
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View style={styles.redMark} />

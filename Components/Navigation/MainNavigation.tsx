@@ -6,6 +6,8 @@ import {Screen} from '../Utils/Strings';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {MoralisProvider} from 'react-moralis';
 import {
+  CreatorProfile,
+  CreatorUploadArt,
   DiscoverMore,
   EditProfile,
   Home,
@@ -43,7 +45,7 @@ const MainNavigation: React.FC = () => {
     colors: {
       primary: Colors.WHITE,
       text: Colors.WHITE,
-      background: Colors.BLACK,
+      background: Colors.TOOLBARDARKCOLOR,
     },
   };
 
@@ -95,6 +97,18 @@ const MainNavigation: React.FC = () => {
                 <Stack.Screen
                   name={Screen.USEREDITPROFILE}
                   component={EditProfile}
+                  options={{headerShown: false}}
+                />
+
+                <Stack.Screen
+                  name={Screen.CREATORPROFILE}
+                  component={CreatorProfile}
+                  options={{headerShown: false}}
+                />
+
+                <Stack.Screen
+                  name={Screen.CREATORUPLOADARTWORK}
+                  component={CreatorUploadArt}
                   options={{headerShown: false}}
                 />
               </Stack.Navigator>

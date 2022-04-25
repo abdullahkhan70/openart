@@ -9,10 +9,15 @@ import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import {Colors} from '../../Utils/Colors';
 import {styles} from './styles';
-import {Lables} from '../../Utils/Strings';
+import {Lables, Screen} from '../../Utils/Strings';
+import {useNavigation} from '@react-navigation/native';
 
 const ViewMoreCollection: React.FC = () => {
+  const navigation = useNavigation();
   const scheme = useColorScheme();
+  const handleViewMoreCollections = () => {
+    navigation.navigate(Screen.CREATORPROFILE);
+  };
   return (
     <View
       style={{
@@ -25,6 +30,7 @@ const ViewMoreCollection: React.FC = () => {
         end={{x: 1, y: 1}}
         style={styles.linearGradientArtWorkViewMoreCollection}>
         <TouchableOpacity
+          onPress={handleViewMoreCollections}
           activeOpacity={0.8}
           style={[
             styles.viewArtworkBtnViewMoreCollection,

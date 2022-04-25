@@ -11,6 +11,7 @@ import {
   setUserAccountModal,
 } from '../../Utils/Redux/modalSlice';
 import AccountDialog from '../Dialogs/AccountDialog';
+import NotificationDialog from '../Dialogs/NotificationDialog';
 const Toolbar: FC = () => {
   const reduxDispatch = useDispatch();
   const selUserAccountModal = useSelector(selectUserAccountModal);
@@ -42,6 +43,7 @@ const Toolbar: FC = () => {
         </View>
       </View>
       {selUserAccountModal ? <AccountDialog /> : <View />}
+      {selNotificationModal ? <NotificationDialog /> : <View />}
     </Fragment>
   );
 };
