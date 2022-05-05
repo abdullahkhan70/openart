@@ -71,6 +71,12 @@ export const IconRegistry = {
   view_dark: require('../../../Assets/Images/view_dark.svg'),
   view_white: require('../../../Assets/Images/view_white.svg'),
   download_white: require('../../../Assets/Images/download_white.svg'),
+  plus_white: require('../../../Assets/Images/plus_white.svg'),
+  plus_dark: require('../../../Assets/Images/plus_dark.svg'),
+  close_white: require('../../../Assets/Images/close_white.svg'),
+  close_black: require('../../../Assets/Images/close_black.svg'),
+  arrow_white: require('../../../Assets/Images/arrow_white.svg'),
+  arrow_black: require('../../../Assets/Images/arrow_black.svg'),
 };
 
 export type IconName = keyof typeof IconRegistry;

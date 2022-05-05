@@ -11,10 +11,16 @@ import {
 import React from 'react';
 import {DummyCollections} from '../../Utils/Lists/DummyCollections';
 import {styles} from './styles';
-import {Lables} from '../../Utils/Strings';
+import {Lables, Screen} from '../../Utils/Strings';
 import Icon from '../../Customs/Icon';
 import {Colors} from '../../Utils/Colors';
 import LinearGradient from 'react-native-linear-gradient';
+import {useDispatch, useSelector} from 'react-redux';
+import {
+  selectUploadPreviewModal,
+  setUploadPreviewModal,
+} from '../../Utils/Redux/modalSlice';
+import {useNavigation} from '@react-navigation/native';
 
 type NewCollectionsProps = {
   item: {
@@ -23,7 +29,13 @@ type NewCollectionsProps = {
   index: number;
 };
 const NewCollections = () => {
+  const navigation = useNavigation();
+  const reduxDispatch = useDispatch();
+  const selUploadPreviewModal = useSelector(selectUploadPreviewModal);
   const scheme = useColorScheme();
+  const handleUploadArtwork = () => {
+    navigation.navigate(Screen.PURCHASEPROCESS);
+  };
   const renderHeader = () => (
     <TouchableOpacity>
       <View style={styles.newCollectionHeaderMainView}>
@@ -88,6 +100,11 @@ const NewCollections = () => {
         style={styles.linearGradientArtWork}>
         <TouchableOpacity
           activeOpacity={0.8}
+          onPress={() =>
+            reduxDispatch(
+              setUploadPreviewModal(Boolean(!selUploadPreviewModal)),
+            )
+          }
           style={[
             styles.viewArtworkBtn,
             {
@@ -111,7 +128,10 @@ const NewCollections = () => {
           </Text>
         </TouchableOpacity>
       </LinearGradient>
-      <TouchableOpacity style={styles.placeABidBtn} activeOpacity={0.5}>
+      <TouchableOpacity
+        style={styles.placeABidBtn}
+        activeOpacity={0.5}
+        onPress={handleUploadArtwork}>
         <LinearGradient
           colors={[Colors.PLACEABIDFIRSTCOLOR, Colors.PLACEABIDSECONDCOLOR]}
           start={{x: 0.8, y: -0.8}}

@@ -9,6 +9,9 @@ const initialState = {
   userAccountSnackbar: false,
   darkMode: false,
   notificationModal: false,
+  uploadPreviewModal: false,
+  fixPriceButton: true,
+  autionButton: false,
 };
 
 const modalSlice = createSlice({
@@ -17,6 +20,15 @@ const modalSlice = createSlice({
   reducers: {
     setSearchBar: (state, action) => {
       state.searchBar = action?.payload;
+    },
+    setFixPriceButton: (state, action) => {
+      state.fixPriceButton = action?.payload;
+    },
+    setAutionButton: (state, action) => {
+      state.autionButton = action?.payload;
+    },
+    setUploadPreviewModal: (state, action) => {
+      state.uploadPreviewModal = action?.payload;
     },
     setNotificationModal: (state, action) => {
       state.notificationModal = action?.payload;
@@ -51,6 +63,9 @@ export const {
   setUserAccountSnackbar,
   setDarkMode,
   setNotificationModal,
+  setUploadPreviewModal,
+  setAutionButton,
+  setFixPriceButton,
 } = modalSlice.actions;
 export const selectSearchBar = state => state.modalSlice.searchBar;
 export const selectConnectWalletModal = state =>
@@ -65,5 +80,8 @@ export const selectUserAccountSnackbar = state =>
 export const selectDarkMode = state => state.modalSlice.darkMode;
 export const selectNotificationModal = state =>
   state.modalSlice.notificationModal;
-
+export const selectUploadPreviewModal = state =>
+  state.modalSlice.uploadPreviewModal;
+export const selectFixPriceButton = state => state.modalSlice.fixPriceButton;
+export const selectAutionButton = state => state.modalSlice.autionButton;
 export default modalSlice.reducer;

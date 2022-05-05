@@ -13,6 +13,8 @@ import {
   Home,
   ItemDetails,
   MyProfile,
+  PriceScreen,
+  PurchaseProcess,
   UserProfile,
 } from '../Screen';
 import {Colors} from '../Utils/Colors';
@@ -109,6 +111,18 @@ const MainNavigation: React.FC = () => {
                 <Stack.Screen
                   name={Screen.CREATORUPLOADARTWORK}
                   component={CreatorUploadArt}
+                  options={{headerShown: false}}
+                />
+
+                <Stack.Screen
+                  name={Screen.PURCHASEPROCESS}
+                  component={PurchaseProcess}
+                  options={{headerShown: false}}
+                />
+
+                <Stack.Screen
+                  name={Screen.PRICESCREEN}
+                  component={PriceScreen}
                   options={{headerShown: false}}
                 />
               </Stack.Navigator>

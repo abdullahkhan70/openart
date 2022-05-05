@@ -10,6 +10,10 @@ const initialState = {
   instantSalePrice: true,
   unlockOncePurchased: false,
   addToCollection: true,
+  thirteenYearOldCheckBox: false,
+  agreeTermsOfServiceCheckBox: false,
+  enterEthValue: '',
+  oncePurchasedSwitch: false,
 };
 
 const uploadArtworkSlice = createSlice({
@@ -18,6 +22,18 @@ const uploadArtworkSlice = createSlice({
   reducers: {
     setMutlitFile: (state, action) => {
       state.mutlitFile = action?.payload;
+    },
+    setOncePurchasedSwitch: (state, action) => {
+      state.oncePurchasedSwitch = action?.payload;
+    },
+    setThirteenYearOldCheckBox: (state, action) => {
+      state.thirteenYearOldCheckBox = action?.payload;
+    },
+    setEnterEthValue: (state, action) => {
+      state.enterEthValue = action?.payload;
+    },
+    setAgreeTermsOfServiceCheckBox: (state, action) => {
+      state.agreeTermsOfServiceCheckBox = action?.payload;
     },
     setItemName: (state, action) => {
       state.itemName = action?.payload;
@@ -61,6 +77,10 @@ export const {
   setAddToCollection,
   setSaleThisItem,
   setUnlockOncePurchased,
+  setAgreeTermsOfServiceCheckBox,
+  setThirteenYearOldCheckBox,
+  setEnterEthValue,
+  setOncePurchasedSwitch,
 } = uploadArtworkSlice.actions;
 export const selectMutlitFile = state => state.uploadArtworkSlice.mutlitFile;
 export const selectMultiUploadImages = state =>
@@ -76,5 +96,13 @@ export const selectUnlockOncePurchased = state =>
   state.uploadArtworkSlice.unlockOncePurchased;
 export const selectAddToCollection = state =>
   state.uploadArtworkSlice.addToCollection;
+export const selectThirteenYearOldCheckBox = state =>
+  state.uploadArtworkSlice.thirteenYearOldCheckBox;
+export const selectAgreeTermsOfServiceCheckBox = state =>
+  state.uploadArtworkSlice.agreeTermsOfServiceCheckBox;
+export const selectEnterEthValue = state =>
+  state.uploadArtworkSlice.enterEthValue;
+export const selectOncePurchasedSwitch = state =>
+  state.uploadArtworkSlice.oncePurchasedSwitch;
 
 export default uploadArtworkSlice.reducer;

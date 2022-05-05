@@ -36,6 +36,8 @@ import {
 } from '../../Utils/Redux/uploadArtworkSlice';
 import AvailableCheckBoxs from './AvailableCheckBoxs';
 import NewCollections from './NewCollections';
+import {selectUploadPreviewModal} from '../../Utils/Redux/modalSlice';
+import UploadArtwork from '../../Customs/Dialogs/UploadArtwork';
 const {width} = Dimensions.get('window');
 const Index = () => {
   const {colors} = useTheme();
@@ -47,6 +49,7 @@ const Index = () => {
   const selnstantSalePrice = useSelector(selectInstantSalePrice);
   const selAddToCollection = useSelector(selectAddToCollection);
   const selUnlockOncePurchased = useSelector(selectUnlockOncePurchased);
+  const selUploadPreviewModal = useSelector(selectUploadPreviewModal);
   return (
     <Fragment>
       <FocusAwareStatusBar
@@ -128,6 +131,7 @@ const Index = () => {
           </View>
         </TouchableHighlight>
       </ScrollView>
+      {selUploadPreviewModal ? <UploadArtwork /> : <View />}
     </Fragment>
   );
 };
