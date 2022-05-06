@@ -77,6 +77,10 @@ export const IconRegistry = {
   close_black: require('../../../Assets/Images/close_black.svg'),
   arrow_white: require('../../../Assets/Images/arrow_white.svg'),
   arrow_black: require('../../../Assets/Images/arrow_black.svg'),
+  server_light: require('../../../Assets/Images/server_light.svg'),
+  process_light: require('../../../Assets/Images/process_light.svg'),
+  security: require('../../../Assets/Images/security.svg'),
+  stars: require('../../../Assets/Images/stars.svg'),
 };
 
 export type IconName = keyof typeof IconRegistry;

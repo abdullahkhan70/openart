@@ -12,6 +12,7 @@ import {
   EditProfile,
   Home,
   ItemDetails,
+  MintProcess,
   MyProfile,
   PriceScreen,
   PurchaseProcess,
@@ -123,6 +124,12 @@ const MainNavigation: React.FC = () => {
                 <Stack.Screen
                   name={Screen.PRICESCREEN}
                   component={PriceScreen}
+                  options={{headerShown: false}}
+                />
+
+                <Stack.Screen
+                  name={Screen.MINTPROCESS}
+                  component={MintProcess}
                   options={{headerShown: false}}
                 />
               </Stack.Navigator>

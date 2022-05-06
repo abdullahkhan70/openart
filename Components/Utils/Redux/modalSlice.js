@@ -12,6 +12,10 @@ const initialState = {
   uploadPreviewModal: false,
   fixPriceButton: true,
   autionButton: false,
+  serverProcessIsLoading: false,
+  checkoutModal: false,
+  followStepsModal: false,
+  paymentSuccessModal: false,
 };
 
 const modalSlice = createSlice({
@@ -20,6 +24,18 @@ const modalSlice = createSlice({
   reducers: {
     setSearchBar: (state, action) => {
       state.searchBar = action?.payload;
+    },
+    setCheckoutModal: (state, action) => {
+      state.checkoutModal = action?.payload;
+    },
+    setFollowStepsModal: (state, action) => {
+      state.followStepsModal = action?.payload;
+    },
+    setPaymentSuccessModal: (state, action) => {
+      state.paymentSuccessModal = action?.payload;
+    },
+    setServerProcessIsLoading: (state, action) => {
+      state.serverProcessIsLoading = action?.payload;
     },
     setFixPriceButton: (state, action) => {
       state.fixPriceButton = action?.payload;
@@ -66,6 +82,10 @@ export const {
   setUploadPreviewModal,
   setAutionButton,
   setFixPriceButton,
+  setServerProcessIsLoading,
+  setCheckoutModal,
+  setFollowStepsModal,
+  setPaymentSuccessModal,
 } = modalSlice.actions;
 export const selectSearchBar = state => state.modalSlice.searchBar;
 export const selectConnectWalletModal = state =>
@@ -84,4 +104,11 @@ export const selectUploadPreviewModal = state =>
   state.modalSlice.uploadPreviewModal;
 export const selectFixPriceButton = state => state.modalSlice.fixPriceButton;
 export const selectAutionButton = state => state.modalSlice.autionButton;
+export const selectServerProcessIsLoading = state =>
+  state.modalSlice.serverProcessIsLoading;
+export const selectCheckoutModal = state => state.modalSlice.checkoutModal;
+export const selectFollowStepsModal = state =>
+  state.modalSlice.followStepsModal;
+export const selectPaymentSuccessModal = state =>
+  state.modalSlice.paymentSuccessModal;
 export default modalSlice.reducer;

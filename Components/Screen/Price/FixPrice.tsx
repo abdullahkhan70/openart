@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {Fragment, useState} from 'react';
-import {Lables} from '../../Utils/Strings';
+import {Lables, Screen} from '../../Utils/Strings';
 import {styles} from './styles';
 import {Colors} from '../../Utils/Colors';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -23,6 +23,7 @@ import MainView from './MainView';
 import {Switch} from 'react-native-paper';
 import LinearGradientBackgroundButton from '../../Customs/LinearGradientButtons/LinearGradientBackgroundButton';
 import {useNavigation} from '@react-navigation/native';
+import {MotiView} from 'moti';
 
 const FixPrice = () => {
   const navigation = useNavigation();
@@ -32,40 +33,47 @@ const FixPrice = () => {
   const handleSwitchChange = () => {
     reduxDispatch(setOncePurchasedSwitch(Boolean(!selOncePurchasedSwitch)));
   };
-  const handleMintNFT = () => {};
+  const handleMintNFT = () => {
+    navigation.navigate(Screen.MINTPROCESS);
+  };
   return (
     <Fragment>
-      <MainView labels={Lables.FIXEDPRICETEXT} />
-      <View style={styles.overLineView} />
-      <View style={styles.oncePurchasedMainView}>
-        <View>
-          <Text
-            style={[
-              styles.oncePurchasedText,
-              {
-                color:
-                  scheme == 'light'
-                    ? Colors.SEARCHBARCOLORDARK
-                    : Colors.BACKGROUND,
-              },
-            ]}>
-            {Lables.ONCEPURCHASED}
-          </Text>
-          <Text style={styles.obncePurchasedSubText}>
-            {Lables.ONCEPURCHASEDSUBTEXT}
-          </Text>
+      <MotiView
+        from={{transform: [{translateX: 200}]}}
+        animate={{transform: [{translateX: -1}]}}
+        transition={{type: 'spring'}}>
+        <MainView labels={Lables.FIXEDPRICETEXT} />
+        <View style={styles.overLineView} />
+        <View style={styles.oncePurchasedMainView}>
+          <View>
+            <Text
+              style={[
+                styles.oncePurchasedText,
+                {
+                  color:
+                    scheme == 'light'
+                      ? Colors.SEARCHBARCOLORDARK
+                      : Colors.BACKGROUND,
+                },
+              ]}>
+              {Lables.ONCEPURCHASED}
+            </Text>
+            <Text style={styles.obncePurchasedSubText}>
+              {Lables.ONCEPURCHASEDSUBTEXT}
+            </Text>
+          </View>
+          <Switch
+            value={selOncePurchasedSwitch}
+            onValueChange={handleSwitchChange}
+            color={Colors.PLACEABIDFIRSTCOLOR}
+          />
         </View>
-        <Switch
-          value={selOncePurchasedSwitch}
-          onValueChange={handleSwitchChange}
-          color={Colors.PLACEABIDFIRSTCOLOR}
+        <LinearGradientBackgroundButton
+          label={Lables.MINTNFT}
+          style={{marginTop: PixelRatio.getPixelSizeForLayoutSize(10)}}
+          onPress={handleMintNFT}
         />
-      </View>
-      <LinearGradientBackgroundButton
-        label={Lables.MINTNFT}
-        style={{marginTop: PixelRatio.getPixelSizeForLayoutSize(10)}}
-        onPress={handleMintNFT}
-      />
+      </MotiView>
     </Fragment>
   );
 };

@@ -2,10 +2,10 @@ import {View, Text, TouchableOpacity, ViewStyle} from 'react-native';
 import React, {Fragment} from 'react';
 
 interface PriceButtonProps {
-  onPress: () => void;
-  label: string;
-  styleBtn: ViewStyle;
-  styleText: ViewStyle;
+  onPress?: () => void;
+  label?: string;
+  styleBtn?: ViewStyle;
+  styleText?: ViewStyle;
 }
 
 const PriceButton = ({

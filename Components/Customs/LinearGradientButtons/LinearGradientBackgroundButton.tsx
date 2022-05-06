@@ -1,13 +1,22 @@
-import {View, Text, TouchableOpacity, ViewStyle} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  ViewStyle,
+  ActivityIndicator,
+  PixelRatio,
+} from 'react-native';
 import React, {Fragment} from 'react';
 import {styles} from './styles';
 import LinearGradient from 'react-native-linear-gradient';
 import {Colors} from '../../Utils/Colors';
+import {useSelector} from 'react-redux';
+import {selectFollowStepsModal} from '../../Utils/Redux/modalSlice';
 
 interface LinearGradientBackgroundButtonProps {
-  onPress: () => void;
-  label: String;
-  style: ViewStyle;
+  onPress?: () => void;
+  label?: String;
+  style?: ViewStyle;
 }
 
 const LinearGradientBackgroundButton = ({
@@ -15,6 +24,7 @@ const LinearGradientBackgroundButton = ({
   label,
   style,
 }: LinearGradientBackgroundButtonProps) => {
+  const selFollowStepsModal = useSelector(selectFollowStepsModal);
   return (
     <Fragment>
       <TouchableOpacity
@@ -26,7 +36,23 @@ const LinearGradientBackgroundButton = ({
           start={{x: 0.8, y: -0.8}}
           end={{x: 1, y: 1}}
           style={styles.linearGradient}>
-          <Text style={styles.placeBidText}>{label}</Text>
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            {selFollowStepsModal && (
+              <ActivityIndicator size={'large'} color={Colors.WHITE} />
+            )}
+
+            <Text
+              style={[
+                styles.placeBidText,
+                {
+                  marginLeft: selectFollowStepsModal
+                    ? PixelRatio.getPixelSizeForLayoutSize(4)
+                    : 0,
+                },
+              ]}>
+              {label}
+            </Text>
+          </View>
         </LinearGradient>
       </TouchableOpacity>
     </Fragment>

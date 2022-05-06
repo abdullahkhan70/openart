@@ -20,6 +20,7 @@ import Icon from '../../Customs/Icon';
 import {DummyLiveAuctions} from '../../Utils/Lists/DummyLiveAuctions';
 import SoldFor from './LiveAuctions/SoldFor';
 import CurrentBidding from './LiveAuctions/CurrentBidding';
+import LiveAuctionView from '../../Customs/LiveAuctionView/LiveAuctionView';
 const {width, height} = Dimensions.get('window');
 
 type renderItemsProps = {
@@ -42,82 +43,7 @@ const LiveAuctions: React.FC<Props> = ({hideView}) => {
   const scheme = useColorScheme();
   const {colors} = useTheme();
   const renderItems = ({item, index}: renderItemsProps) => (
-    <TouchableHighlight style={styles.liveAuctionsNftBtn}>
-      <View>
-        <View
-          style={[
-            styles.currentBiddingNftMainView,
-            {
-              backgroundColor:
-                scheme == 'light' ? Colors.WHITE : Colors.SEARCHBARCOLORDARK,
-              marginTop: PixelRatio.getPixelSizeForLayoutSize(4),
-            },
-          ]}>
-          <Image source={item?.artImage} style={styles.productImage} />
-          <View
-            style={{
-              marginLeft: PixelRatio.getPixelSizeForLayoutSize(4),
-              marginTop: PixelRatio.getPixelSizeForLayoutSize(4),
-            }}>
-            <Text style={[styles.artName, {color: colors.primary}]}>
-              {item?.artName}
-            </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginTop: PixelRatio.getPixelSizeForLayoutSize(2),
-              }}>
-              <View style={{flexDirection: 'row'}}>
-                <ImageBackground
-                  source={item?.artImage}
-                  style={styles.profileImages}
-                  imageStyle={{borderRadius: 100}}>
-                  <View style={{flex: 1, alignItems: 'flex-end'}}>
-                    <View style={styles.onlineOuterCircleView}>
-                      <View style={styles.onlineCircleView} />
-                    </View>
-                  </View>
-                </ImageBackground>
-                <View
-                  style={{padding: PixelRatio.getPixelSizeForLayoutSize(3)}}>
-                  <Text
-                    style={[
-                      styles.creatorName,
-                      {
-                        color:
-                          scheme == 'light'
-                            ? Colors.SEARCHBARCOLORDARK
-                            : Colors.WHITE,
-                      },
-                    ]}>
-                    {item?.creatorName}
-                  </Text>
-                  <Text>{Lables.CREATOR}</Text>
-                </View>
-              </View>
-              <Icon
-                style={{
-                  marginBottom: PixelRatio.getPixelSizeForLayoutSize(5),
-                  marginRight: PixelRatio.getPixelSizeForLayoutSize(3),
-                }}
-                name="deselect_heart"
-              />
-            </View>
-          </View>
-        </View>
-        {item?.sold ? (
-          <SoldFor rate={item?.rate} />
-        ) : (
-          <CurrentBidding
-            rate={item?.rate}
-            minutes={item?.minutes}
-            seconds={item?.seconds}
-          />
-        )}
-      </View>
-    </TouchableHighlight>
+    <LiveAuctionView item={item} index={index} key={index} />
   );
   return (
     <>
@@ -130,7 +56,6 @@ const LiveAuctions: React.FC<Props> = ({hideView}) => {
             flexDirection: 'row',
             paddingLeft: PixelRatio.getPixelSizeForLayoutSize(6),
             paddingRight: PixelRatio.getPixelSizeForLayoutSize(6),
-            paddingBottom: PixelRatio.getPixelSizeForLayoutSize(5),
           }}>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
             <View style={styles.redMark} />

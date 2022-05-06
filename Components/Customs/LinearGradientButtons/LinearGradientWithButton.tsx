@@ -12,9 +12,9 @@ import {Lables} from '../../Utils/Strings';
 import {styles} from './styles';
 
 interface LinearGradientWithButtonProps {
-  onPress: () => void;
-  label: String;
-  style: ViewStyle;
+  onPress?: () => void;
+  label?: String;
+  style?: ViewStyle;
 }
 
 const LinearGradientWithButton = ({
